@@ -5,12 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Weather-Web</title>
-
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="./image/logo.jpg">
 
+    <!-- chart.js CDN  -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <!-- Font Awesome  -->
     <script src="https://kit.fontawesome.com/98c9c535e9.js" crossorigin="anonymous"></script>
+
+    <!-- Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Plotly Chart -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 
 </head>
 
@@ -22,14 +32,7 @@
 
             <div class="input-group">
                 <input type="text" id="userLocation" placeholder="Search for places....">
-
-                <select class="converter" id="converter">
-                    <option value="">C</option>
-                    <option value="">F</option>
-                </select>
-
                 <i class="fa fa-search" onclick="findUserLocation()"></i>
-
             </div>
 
             <div class="weatherIcon"> </div>
@@ -61,12 +64,12 @@
 
                 <div class="sun">
                     <span>
-                        <i class="fa-solid fa-sun"></i>
+                        <i class="fa-solid fa-sun Sunrise"></i>
                         <p><span id="SRValue"></span>Sunrise</p>
                     </span>
 
                     <span>
-                        <i class="fa-regular fa-sun"></i>
+                        <i class="fa-regular fa-sun Sunset"></i>
                         <p><span id="SSValue"></span>Sunset</p>
                     </span>
                 </div>
@@ -94,10 +97,18 @@
 
             <br>
 
-
             <h2 class="heading">This Week</h2>
             <!-- <div class="Forecast"></div> -->
             <div id="forecastContainer"></div>
+
+            <!-- Forecast Chart -->
+            <h2 class="heading">7-Day Forecast Chart</h2>
+            <div id="forecastChart" style="height: 400px; width: 100%; border-radius: 12px;">
+            </div>
+
+            <!-- Maps  -->
+            <h2 class="heading text-xl font-bold mt-20 ">Map Location</h2>
+            <div id="map" style="height: 400px; width: 100%; border-radius: 12px;"></div>
 
 
         </div>
@@ -110,7 +121,6 @@
 
 
     <script defer src="./script.js"></script>
-    <!-- <script src="./look.js"></script> -->
 </body>
 
 </html>
